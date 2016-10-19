@@ -10,12 +10,10 @@ ADD start.sh /start.sh
 ADD supervisord.conf /etc/supervisord.conf
 RUN chmod u+x /start.sh
 
-RUN mkdir -p /data/ansible/roles /data/ansible/projects \
+RUN mkdir -p /data/ansible/{roles,projects,playbooks} \
         && cp /opt/ansible-rest-api/ansible.cfg /root/.ansible.cfg \
         && ansible-galaxy install -r /opt/ansible-rest-api/requirements.yml -p /data/ansible/roles/
 
-VOLUME ["/data/ansible/roles", "/data/ansible/projects"]
+VOLUME ["/data/ansible/roles", "/data/ansible/projects", "/data/ansible/playbooks"]
 EXPOSE 8000
 CMD ["/start.sh"]
-
-

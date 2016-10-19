@@ -1,11 +1,14 @@
 ansible2.0-rest-api:
   container_name: ansible2.0-rest-api
   image: ansible2.0-rest-api
-  environment: 
+  environment:
     - MONGO_HOST=172.17.0.1
     - MONGO_PORT=27017
     - MONGO_NAME=ansible
     - MONGO_USER=ansible
     - MONGO_PASSWORD=ansible
+  volumes:
+    - /data/ansible/playbooks:/data/ansible/playbooks
+    - /data/ansible/projects:/data/ansible/projects
   ports:
     - "8000:8000"
