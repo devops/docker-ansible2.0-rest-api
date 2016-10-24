@@ -4,7 +4,7 @@ RUN yum update -y && yum --quiet install -y epel-release
 RUN yum --quiet install -y python-pip python-devel gcc make libffi-devel openssl-devel git supervisor
 
 RUN git clone https://github.com/devops/ansible-rest-api.git /opt/ansible-rest-api
-RUN pip install -r /opt/ansible-rest-api/requirements-v2.txt
+RUN pip install  --upgrade -r /opt/ansible-rest-api/requirements-v2.txt
 
 ADD start.sh /start.sh
 ADD supervisord.conf /etc/supervisord.conf
