@@ -20,6 +20,6 @@ docker run -d \
     --name="ansible2.0-rest-api" \
     -e MONGO_HOST=mongo \
     -e MONGO_NAME=ansible \
-    -v /data/ansible/playbooks:/data/ansible/playbooks
-    -v /data/ansible/projects:/data/ansible/projects
+    -v /data/ansible/playbooks:/data/ansible/playbooks \
+    -v /data/ansible/projects:/data/ansible/projects \
     ansible2.0-rest-api
