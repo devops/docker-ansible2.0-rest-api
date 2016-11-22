@@ -5,6 +5,8 @@ RUN yum --quiet install -y python-pip python-devel gcc make libffi-devel openssl
 RUN yum clean all
 
 RUN git clone https://github.com/devops/ansible-rest-api.git /opt/ansible-rest-api
+
+ADD pip.conf /root/.pip/pip.conf
 RUN pip install  --upgrade -r /opt/ansible-rest-api/requirements-v2.txt
 
 ADD start.sh /start.sh
